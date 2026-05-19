@@ -23,7 +23,6 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -37,7 +36,6 @@
       overflow-x: hidden;
     }
 
-    /* Grid noise texture */
     body::before {
       content: '';
       position: fixed;
@@ -51,14 +49,11 @@
       z-index: 0;
     }
 
-    /* Glowing orb */
     body::after {
       content: '';
       position: fixed;
-      top: -200px;
-      right: -200px;
-      width: 700px;
-      height: 700px;
+      top: -200px; right: -200px;
+      width: 700px; height: 700px;
       background: radial-gradient(circle, rgba(0,200,160,0.07) 0%, transparent 70%);
       pointer-events: none;
       z-index: 0;
@@ -72,14 +67,13 @@
       padding: 0 32px 80px;
     }
 
-    /* ── Header ── */
+    /* Header */
     header {
       border-bottom: 1px solid var(--border);
       padding: 48px 0 36px;
       margin-bottom: 56px;
       animation: fadeDown 0.6s ease both;
     }
-
     .header-eyebrow {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 11px;
@@ -91,15 +85,12 @@
       align-items: center;
       gap: 10px;
     }
-
     .header-eyebrow::before {
       content: '';
       display: inline-block;
-      width: 28px;
-      height: 1px;
+      width: 28px; height: 1px;
       background: var(--accent);
     }
-
     h1 {
       font-family: 'IBM Plex Sans', sans-serif;
       font-weight: 600;
@@ -109,20 +100,30 @@
       line-height: 1.15;
       margin-bottom: 16px;
     }
-
-    h1 span {
-      color: var(--accent);
-    }
-
+    h1 span { color: var(--accent); }
     .header-meta {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 12px;
       color: var(--text-muted);
       letter-spacing: 0.05em;
+      margin-bottom: 28px;
     }
-
+    .purpose-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .purpose-text {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
     .scope-callout {
-      margin-top: 28px;
+      margin-top: 16px;
       padding: 14px 20px;
       background: var(--warn-dim);
       border-left: 3px solid var(--warn);
@@ -132,18 +133,7 @@
       line-height: 1.6;
     }
 
-    .scope-callout strong {
-      font-weight: 600;
-      color: var(--warn);
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    /* ── TOC ── */
+    /* TOC */
     .toc {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -152,7 +142,6 @@
       margin-bottom: 56px;
       animation: fadeDown 0.6s 0.1s ease both;
     }
-
     .toc-title {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 10px;
@@ -161,20 +150,9 @@
       color: var(--text-muted);
       margin-bottom: 14px;
     }
-
-    .toc ol {
-      list-style: none;
-      counter-reset: toc;
-    }
-
-    .toc ol li {
-      counter-increment: toc;
-      padding: 5px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
+    .toc ol { list-style: none; counter-reset: toc; }
+    .toc ol li { counter-increment: toc; padding: 5px 0; border-bottom: 1px solid var(--border); }
     .toc ol li:last-child { border-bottom: none; }
-
     .toc ol li::before {
       content: "0" counter(toc) ".";
       font-family: 'IBM Plex Mono', monospace;
@@ -182,22 +160,11 @@
       color: var(--accent);
       margin-right: 12px;
     }
-
-    .toc a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      font-size: 14px;
-      transition: color 0.2s;
-    }
-
+    .toc a { color: var(--text-secondary); text-decoration: none; font-size: 14px; transition: color 0.2s; }
     .toc a:hover { color: var(--accent); }
 
-    /* ── Sections ── */
-    section {
-      margin-bottom: 64px;
-      animation: fadeUp 0.5s ease both;
-    }
-
+    /* Sections */
+    section { margin-bottom: 64px; animation: fadeUp 0.5s ease both; }
     section:nth-child(2) { animation-delay: 0.15s; }
     section:nth-child(3) { animation-delay: 0.25s; }
     section:nth-child(4) { animation-delay: 0.35s; }
@@ -210,43 +177,20 @@
       text-transform: uppercase;
       margin-bottom: 8px;
     }
-
     h2 {
       font-weight: 600;
       font-size: 22px;
       letter-spacing: -0.01em;
       color: var(--text-primary);
-      margin-bottom: 28px;
+      margin-bottom: 20px;
       padding-bottom: 14px;
       border-bottom: 1px solid var(--border);
     }
+    p { color: var(--text-secondary); margin-bottom: 14px; font-size: 14px; }
 
-    h3 {
-      font-weight: 600;
-      font-size: 14px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin: 32px 0 14px;
-      font-family: 'IBM Plex Mono', monospace;
-    }
-
-    p {
-      color: var(--text-secondary);
-      margin-bottom: 14px;
-    }
-
-    /* ── Role Cards ── */
-    .role-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-top: 8px;
-    }
-
-    @media (max-width: 600px) {
-      .role-grid { grid-template-columns: 1fr; }
-    }
+    /* Role Cards */
+    .role-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+    @media (max-width: 600px) { .role-grid { grid-template-columns: 1fr; } }
 
     .role-card {
       background: var(--surface);
@@ -255,12 +199,7 @@
       padding: 22px 24px;
       transition: border-color 0.2s, transform 0.2s;
     }
-
-    .role-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-2px);
-    }
-
+    .role-card:hover { border-color: var(--accent); transform: translateY(-2px); }
     .role-card.admin { border-top: 3px solid var(--accent); }
     .role-card.viewer { border-top: 3px solid var(--text-muted); }
 
@@ -274,63 +213,33 @@
       display: inline-block;
       margin-bottom: 14px;
     }
+    .role-badge.admin { background: var(--accent-dim); color: var(--accent); border: 1px solid var(--accent-mid); }
+    .role-badge.viewer { background: rgba(122,154,175,0.1); color: var(--text-secondary); border: 1px solid rgba(122,154,175,0.2); }
 
-    .role-badge.admin {
-      background: var(--accent-dim);
-      color: var(--accent);
-      border: 1px solid var(--accent-mid);
-    }
-
-    .role-badge.viewer {
-      background: rgba(122,154,175,0.1);
-      color: var(--text-secondary);
-      border: 1px solid rgba(122,154,175,0.2);
-    }
-
-    .role-card ul {
-      list-style: none;
-      padding: 0;
-    }
-
+    .role-card ul { list-style: none; padding: 0; }
     .role-card ul li {
       font-size: 13.5px;
       color: var(--text-secondary);
-      padding: 5px 0;
-      padding-left: 16px;
+      padding: 5px 0 5px 16px;
       position: relative;
       border-bottom: 1px solid rgba(31,47,63,0.6);
     }
-
     .role-card ul li:last-child { border-bottom: none; }
+    .role-card ul li::before { content: '›'; position: absolute; left: 0; color: var(--accent); font-size: 14px; }
 
-    .role-card ul li::before {
-      content: '›';
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-size: 14px;
-    }
-
-    /* ── Lifecycle cards ── */
-    .lifecycle-grid {
-      display: grid;
-      gap: 14px;
-    }
-
+    /* Lifecycle */
+    .lifecycle-grid { display: grid; gap: 14px; }
     .lifecycle-item {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 6px;
       padding: 20px 24px;
       display: grid;
-      grid-template-columns: 140px 1fr;
+      grid-template-columns: 170px 1fr;
       gap: 20px;
       align-items: start;
     }
-
-    @media (max-width: 600px) {
-      .lifecycle-item { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 600px) { .lifecycle-item { grid-template-columns: 1fr; } }
 
     .lifecycle-label {
       font-family: 'IBM Plex Mono', monospace;
@@ -340,38 +249,13 @@
       color: var(--accent);
       padding-top: 2px;
     }
+    .lifecycle-content { font-size: 14px; color: var(--text-secondary); line-height: 1.65; }
+    .lifecycle-content ul { list-style: none; margin-top: 10px; }
+    .lifecycle-content ul li { padding: 4px 0 4px 16px; position: relative; font-size: 13.5px; }
+    .lifecycle-content ul li::before { content: '—'; position: absolute; left: 0; color: var(--text-muted); }
 
-    .lifecycle-content {
-      font-size: 14px;
-      color: var(--text-secondary);
-    }
-
-    .lifecycle-content ul {
-      list-style: none;
-      margin-top: 8px;
-    }
-
-    .lifecycle-content ul li {
-      padding: 4px 0 4px 16px;
-      position: relative;
-      font-size: 13.5px;
-    }
-
-    .lifecycle-content ul li::before {
-      content: '—';
-      position: absolute;
-      left: 0;
-      color: var(--text-muted);
-    }
-
-    /* ── Decommission table ── */
-    .decomm-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-      font-size: 14px;
-    }
-
+    /* Decommission table */
+    .decomm-table { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 14px; }
     .decomm-table th {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 10px;
@@ -383,115 +267,31 @@
       border-bottom: 1px solid var(--border);
       background: var(--surface-2);
     }
-
-    .decomm-table td {
-      padding: 14px 16px;
-      border-bottom: 1px solid var(--border);
-      color: var(--text-secondary);
-      vertical-align: top;
-    }
-
+    .decomm-table td { padding: 12px 16px; border-bottom: 1px solid var(--border); color: var(--text-secondary); vertical-align: top; }
     .decomm-table tr:last-child td { border-bottom: none; }
-
-    .decomm-table td:first-child {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 12px;
-      color: var(--accent);
-      white-space: nowrap;
-    }
-
-    .decomm-table tr:hover td {
-      background: var(--accent-dim);
-    }
+    .decomm-table td:first-child { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--accent); white-space: nowrap; }
+    .decomm-table tr:hover td { background: var(--accent-dim); }
 
     .deadline-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      margin-top: 12px;
+      margin-top: 14px;
       padding: 8px 14px;
       background: rgba(224,80,80,0.08);
       border: 1px solid rgba(224,80,80,0.2);
       border-radius: 4px;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 12px;
+      font-size: 13px;
       color: var(--red);
     }
+    .deadline-badge::before { content: '⚠'; font-size: 13px; }
 
-    .deadline-badge::before {
-      content: '⚠';
-      font-size: 13px;
-    }
-
-    /* ── Settings table ── */
-    .settings-table-wrap {
-      overflow-x: auto;
-      border-radius: 6px;
-      border: 1px solid var(--border);
-    }
-
-    .settings-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 13.5px;
-      min-width: 600px;
-    }
-
-    .settings-table thead tr {
-      background: var(--surface-2);
-    }
-
-    .settings-table th {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      text-align: left;
-      padding: 12px 16px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .settings-table td {
-      padding: 14px 16px;
-      border-bottom: 1px solid var(--border);
-      color: var(--text-secondary);
-      vertical-align: top;
-      line-height: 1.55;
-    }
-
-    .settings-table tr:last-child td { border-bottom: none; }
-
-    .settings-table td:first-child {
-      font-weight: 600;
-      color: var(--text-primary);
-      font-size: 13px;
-      white-space: nowrap;
-    }
-
-    .settings-table tr:hover td {
-      background: rgba(0,200,160,0.04);
-    }
-
-    .rec-pill {
-      display: inline-block;
-      margin-top: 6px;
-      padding: 3px 8px;
-      background: var(--accent-dim);
-      border: 1px solid var(--accent-mid);
-      border-radius: 3px;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 10px;
-      color: var(--accent);
-      letter-spacing: 0.05em;
-    }
-
-    /* ── MFA link block ── */
+    /* Doc link */
     .doc-link {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      margin-top: 12px;
+      margin-top: 10px;
       padding: 10px 16px;
       background: var(--surface);
       border: 1px solid var(--border);
@@ -502,53 +302,47 @@
       text-decoration: none;
       transition: border-color 0.2s, background 0.2s;
     }
-
-    .doc-link:hover {
-      border-color: var(--accent);
-      background: var(--accent-dim);
-    }
-
+    .doc-link:hover { border-color: var(--accent); background: var(--accent-dim); }
     .doc-link::before { content: '↗'; font-size: 13px; }
 
-    /* ── Footer ── */
+    /* Settings table */
+    .settings-table-wrap { overflow-x: auto; border-radius: 6px; border: 1px solid var(--border); }
+    .settings-table { width: 100%; border-collapse: collapse; font-size: 13.5px; min-width: 600px; }
+    .settings-table thead tr { background: var(--surface-2); }
+    .settings-table th {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-align: left;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .settings-table td { padding: 14px 16px; border-bottom: 1px solid var(--border); color: var(--text-secondary); vertical-align: top; line-height: 1.6; }
+    .settings-table tr:last-child td { border-bottom: none; }
+    .settings-table td:first-child { font-weight: 600; color: var(--text-primary); font-size: 13px; white-space: nowrap; }
+    .settings-table tr:hover td { background: rgba(0,200,160,0.04); }
+
+    /* Footer */
     footer {
       border-top: 1px solid var(--border);
       padding-top: 28px;
       margin-top: 32px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
     }
-
-    .footer-text {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 11px;
-      color: var(--text-muted);
-    }
-
+    .footer-text { font-size: 13.5px; color: var(--text-secondary); margin-bottom: 12px; line-height: 1.65; }
     .footer-link {
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 11px;
+      font-size: 12px;
       color: var(--accent);
       text-decoration: none;
       border-bottom: 1px solid var(--accent-mid);
       transition: color 0.2s;
     }
-
     .footer-link:hover { color: #fff; }
 
-    /* ── Animations ── */
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-16px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeUp   { from { opacity: 0; transform: translateY(20px);  } to { opacity: 1; transform: translateY(0); } }
   </style>
 </head>
 <body>
@@ -558,11 +352,11 @@
   <header>
     <div class="header-eyebrow">Oligo Security</div>
     <h1>Security <span>Admin</span> Guide</h1>
-    <div class="header-meta">// LAST UPDATED: MAY 2026 &nbsp;·&nbsp; CLASSIFICATION: PUBLIC</div>
-
+    <div class="header-meta">// May 2026</div>
+    <div class="purpose-label">Purpose</div>
+    <p class="purpose-text">This guide explains how to securely set up, configure, operate, and decommission top-level administrative accounts within the Oligo platform. It is intended for customer administrators responsible for managing their organization's Oligo environment.</p>
     <div class="scope-callout">
-      <strong>Scope</strong>
-      A top-level administrative account is the highest level of admin privilege available to users within a customer's Oligo environment. This guide does not cover Oligo's internal infrastructure or backend administration.
+      A top-level administrative account is defined as the highest level of admin privilege a user within a customer's Oligo environment can hold. This guide does not cover Oligo's internal infrastructure or backend administration.
     </div>
   </header>
 
@@ -570,74 +364,77 @@
   <nav class="toc" aria-label="Table of contents">
     <div class="toc-title">Contents</div>
     <ol>
-      <li><a href="#roles">Role Definitions</a></li>
-      <li><a href="#lifecycle">Admin Account Lifecycle</a></li>
+      <li><a href="#roles">Top-Level Administrative Account Role Definitions</a></li>
+      <li><a href="#lifecycle">Admin Account Lifecycle Procedures</a></li>
       <li><a href="#settings">Admin-Controlled Security Settings</a></li>
     </ol>
   </nav>
 
-  <!-- Section 1: Roles -->
+  <!-- 1. Role Definitions -->
   <section id="roles">
     <div class="section-number">// 01</div>
-    <h2>Role Definitions</h2>
-    <p>Oligo enforces role-based access control (RBAC) with two roles available to customer administrators. Access is governed by least privilege principles, as documented in Oligo's Access Control Policy and Information Security Policy.</p>
+    <h2>Top-Level Administrative Account Role Definitions</h2>
+    <p>Oligo enforces role-based access control (RBAC) across its platform. Two user roles are available to customer administrators:</p>
 
     <div class="role-grid">
       <div class="role-card admin">
         <span class="role-badge admin">Admin</span>
         <ul>
-          <li>Full access to manage resources and members across the Oligo environment</li>
-          <li>Can assign and modify roles for other users</li>
-          <li>Can configure Slack and Jira integrations and manage project membership</li>
-          <li>Can select the <strong>Default (all)</strong> view to see all resources across the organization</li>
-          <li>Can create, modify, and remove projects and associated resources</li>
+          <li>Full access to manage resources and members across the Oligo environment.</li>
+          <li>Can assign and modify roles for other users.</li>
+          <li>Can configure integrations (Slack and Jira) and manage project membership.</li>
+          <li>Can select the <strong>Default (all)</strong> view to see all resources across the organization without project context.</li>
+          <li>Can create, modify, and remove projects and associated resources.</li>
         </ul>
       </div>
 
       <div class="role-card viewer">
-        <span class="role-badge viewer">View-Only</span>
+        <span class="role-badge viewer">View-only</span>
         <ul>
-          <li>Read access to resources within assigned projects only</li>
-          <li>Cannot modify settings, integrations, roles, or project membership</li>
-          <li>Users assigned to two or more projects use the project context selector to switch views</li>
-          <li>Cannot access resources outside of their assigned project membership</li>
+          <li>Read access to resources within assigned projects only.</li>
+          <li>Cannot make changes to settings, integrations, roles, or project membership.</li>
+          <li>Users assigned to two or more projects use the project context selector to switch between project views.</li>
+          <li>Cannot access resources outside of their assigned project membership.</li>
         </ul>
       </div>
     </div>
+
+    <p style="margin-top: 18px;">Access is governed by least privilege principles. Users see only what their role and project membership permit, as documented in Oligo's Access Control Policy and Information Security Policy.</p>
   </section>
 
-  <!-- Section 2: Lifecycle -->
+  <!-- 2. Lifecycle Procedures -->
   <section id="lifecycle">
     <div class="section-number">// 02</div>
-    <h2>Admin Account Lifecycle</h2>
+    <h2>Admin Account Lifecycle Procedures</h2>
 
     <div class="lifecycle-grid">
+
       <div class="lifecycle-item">
         <div class="lifecycle-label">Account Setup</div>
         <div class="lifecycle-content">
-          Administrators can create new user accounts via the Oligo UI or through SSO/SCIM integration. During setup, the provisioning administrator assigns the appropriate role in line with the user's responsibilities.
+          Customer administrators can create new user accounts directly within the Oligo UI or via SSO/SCIM integration, depending on the organization's identity management configuration. During setup, the provisioning administrator assigns the appropriate role (Admin or View-only) in line with the user's responsibilities.
         </div>
       </div>
 
       <div class="lifecycle-item">
         <div class="lifecycle-label">MFA Requirements</div>
         <div class="lifecycle-content">
-          Multi-factor authentication is enforced at the platform level via Palantir's FedRAMP-authorized infrastructure. MFA is managed through Palantir's Control Panel.
+          Multi-factor authentication is enforced at the platform level via Palantir's FedRAMP-authorized infrastructure, which underpins the Oligo environment. MFA configuration and enforcement is managed through Palantir's Control Panel. Relevant documentation is publicly accessible at:
           <br/>
           <a class="doc-link" href="https://www.palantir.com/docs/foundry/platform-security-management/overview" target="_blank" rel="noopener">
-            Authentication and Access Controls documentation
+            Authentication and Access Controls: palantir.com/docs/foundry/platform-security-management/overview
           </a>
         </div>
       </div>
 
       <div class="lifecycle-item">
-        <div class="lifecycle-label">Config Checklist</div>
+        <div class="lifecycle-label">Configuration</div>
         <div class="lifecycle-content">
-          After creating an account, the provisioning administrator should:
+          Once an account is created, the provisioning administrator should:
           <ul>
-            <li>Assign the correct role based on the user's responsibilities</li>
-            <li>Add the user to relevant projects only (apply least privilege)</li>
-            <li>Confirm integrations are scoped correctly before granting Admin access</li>
+            <li>Assign the correct role based on the user's responsibilities.</li>
+            <li>Add the user to relevant projects only — apply least privilege.</li>
+            <li>Confirm integrations are scoped correctly before granting Admin access.</li>
           </ul>
         </div>
       </div>
@@ -645,7 +442,7 @@
       <div class="lifecycle-item">
         <div class="lifecycle-label">Decommissioning</div>
         <div class="lifecycle-content">
-          When a user no longer requires access:
+          When a user no longer requires access, the customer administrator follows one of two paths depending on how accounts are managed:
           <table class="decomm-table">
             <thead>
               <tr>
@@ -655,27 +452,29 @@
             </thead>
             <tbody>
               <tr>
-                <td>With SCIM</td>
-                <td>Deactivate the user in the Identity Provider (IDP). The user is automatically deactivated in Oligo.</td>
+                <td>Via SCIM</td>
+                <td>Deactivate the user in the Identity Provider (IDP). The user is automatically deactivated in Oligo once deactivated in the IDP.</td>
               </tr>
               <tr>
                 <td>Without SCIM</td>
-                <td>Navigate to <strong>Settings</strong>, click on the user's role, and change it to <strong>Viewer</strong>. Admin privileges are removed immediately.</td>
+                <td>Navigate to <strong>Settings</strong>, click on the user's role, and change to <strong>Viewer</strong>. This removes admin privileges immediately.</td>
               </tr>
             </tbody>
           </table>
           <div class="deadline-badge">
-            Access revocation required within 48 hours of request
+            Oligo's Access Control Policy requires that access revocation is completed within 48 hours of a request being raised.
           </div>
         </div>
       </div>
+
     </div>
   </section>
 
-  <!-- Section 3: Settings -->
+  <!-- 3. Security Settings -->
   <section id="settings">
     <div class="section-number">// 03</div>
     <h2>Admin-Controlled Security Settings</h2>
+    <p>The table below describes all security-relevant settings that a customer administrator can configure within Oligo, along with the associated function, security impact, and recommended value.</p>
 
     <div class="settings-table-wrap">
       <table class="settings-table">
@@ -692,37 +491,25 @@
             <td>User Role Assignment</td>
             <td>Assign Admin or View-only role to users</td>
             <td>Over-privileged users can modify resources, integrations, and member access across all projects</td>
-            <td>
-              Assign Admin only where full management access is required. Default new users to View-only.
-              <br/><span class="rec-pill">least privilege</span>
-            </td>
+            <td>Assign Admin only where full management access is required. Default new users to View-only.</td>
           </tr>
           <tr>
             <td>Slack Integration</td>
-            <td>Enable/disable notifications and configure connected workspace</td>
-            <td>Misconfigured integration may expose vulnerability alerts to unintended channels or users</td>
-            <td>
-              Connect only to the designated security channel. Review channel membership before enabling.
-              <br/><span class="rec-pill">scoped channels only</span>
-            </td>
+            <td>Enable/disable Slack notifications and configure connected workspace</td>
+            <td>Misconfigured integration may expose vulnerability alerts to unintended Slack channels or users</td>
+            <td>Connect only to the designated security channel. Review channel membership before enabling.</td>
           </tr>
           <tr>
             <td>Jira Integration</td>
-            <td>Enable/disable ticketing and configure connected project</td>
-            <td>Incorrect project mapping may route findings to non-security teams or expose data outside intended scope</td>
-            <td>
-              Map to a dedicated security project. Restrict Jira project access to relevant team members.
-              <br/><span class="rec-pill">dedicated security project</span>
-            </td>
+            <td>Enable/disable Jira ticketing and configure connected project</td>
+            <td>Incorrect project mapping may route security findings to non-security teams or expose data outside intended scope</td>
+            <td>Map to a dedicated security project. Restrict Jira project access to relevant team members.</td>
           </tr>
           <tr>
             <td>Project Membership</td>
-            <td>Add or remove users from projects; control included resources</td>
+            <td>Add or remove users from projects; control which resources are included in each project</td>
             <td>Users with project membership access all resources within that project. Incorrect membership grants unintended data visibility.</td>
-            <td>
-              Apply least privilege. Review project membership regularly.
-              <br/><span class="rec-pill">regular audit</span>
-            </td>
+            <td>Apply least privilege. Review project membership on a regular basis.</td>
           </tr>
         </tbody>
       </table>
@@ -731,9 +518,9 @@
 
   <!-- Footer -->
   <footer>
-    <span class="footer-text">// PUBLIC DOCUMENT — NO AUTH REQUIRED</span>
+    <p class="footer-text">This guide is publicly accessible without authentication. It will be hosted at Oligo's public documentation site or public GitHub repository. The URL will remain stable and will not require login to access.</p>
     <a class="footer-link" href="https://github.com/OligoCyberSecurity/security-admin-guide" target="_blank" rel="noopener">
-      github.com/OligoCyberSecurity/security-admin-guide ↗
+      https://github.com/OligoCyberSecurity/security-admin-guide ↗
     </a>
   </footer>
 
